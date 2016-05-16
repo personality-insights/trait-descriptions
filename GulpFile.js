@@ -31,15 +31,15 @@ const bundle = () =>
     .bundle();
 
 gulp.task('build-dist-min', () =>
-  gulp.src('dist/personality-behaviors.js')
+  gulp.src('dist/personality-trait-descriptions.js')
     .pipe(uglify())
-    .pipe(rename('personality-behaviors.min.js'))
+    .pipe(rename('personality-trait-descriptions.min.js'))
     .pipe(gulp.dest('dist'))
 );
 
 gulp.task('build-dist', () =>
   bundle()
-    .pipe(source('personality-behaviors.js'))
+    .pipe(source('personality-trait-descriptions.js'))
     .pipe(gulp.dest('dist'))
 );
 
