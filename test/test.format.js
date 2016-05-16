@@ -57,4 +57,22 @@ describe('format', () => {
 
   });
 
+  it('test description without format', () => {
+    const descriptions = new PersonalityTraitDescriptions({ format : 'plain' });
+    const text = descriptions.description('Neuroticism');
+    assert.isOk(text.indexOf('**') == -1, 'Got plain text');
+  });
+
+  it('test description with html format', () => {
+    const descriptions = new PersonalityTraitDescriptions({ format : 'html' });
+    const text = descriptions.description('Neuroticism');
+    assert.isOk(text.indexOf('<strong>') >= 0, 'Got html text');
+  });
+
+  it('test description with markdown format', () => {
+    const descriptions = new PersonalityTraitDescriptions({ format : 'markdown' });
+    const text = descriptions.description('Neuroticism');
+    assert.isOk(text.indexOf('**') >= 0, 'Got markdown text');
+  });
+
 });
