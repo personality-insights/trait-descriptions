@@ -25,7 +25,7 @@ Obtain descriptions for Personality Insights' traits.
   const hedonismDescription  = traitDescriptions.description('Hedonism');
   ```
 
-3. Render behaviors somewhere! Try rendering them as cards!
+3. Render descriptions somewhere! Try rendering them as cards!
 
 See the complete [example code][example_code] or [try it live][live_example]
 
@@ -50,7 +50,7 @@ The available methods are the following ones:
 
 Definitions:
  - `TraitID` is an ID from IBM Watson Personality Insights traits.
- - `Options` are options for the behaviors component. Available options are:
+ - `Options` are options for the trait descriptions component. Available options are:
    - `locale` - A `String` with the locale used to generate the labels.
    - `format` - A `String` with format. Available formats are `["plain", "html", "markdown"]`.
 
