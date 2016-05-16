@@ -20,9 +20,9 @@ Obtain descriptions for Personality Insights' traits.
 2. Get your description
 
   ```JavaScript
-  const opennessDescription  = traitDescriptions.description('big5.openness');
-  const structureDescription = traitDescriptions.description('needs.structure');
-  const hedonismDescription  = traitDescriptions.description('values.hedonism');
+  const opennessDescription  = traitDescriptions.description('Openness');
+  const structureDescription = traitDescriptions.description('Structure');
+  const hedonismDescription  = traitDescriptions.description('Hedonism');
   ```
 
 3. Render behaviors somewhere! Try rendering them as cards!
@@ -39,7 +39,7 @@ global variable `PersonalityTraitDescriptions`.
 - Formatting descriptions in html or markdown optionally!
 ```JavaScript
 const traitDescriptions   = new PersonalityTraitDescriptions({ format:'html' });
-const hedonismDescription = traitDescriptions.description('values.hedonism');
+const hedonismDescription = traitDescriptions.description('Hedonism');
 ```
 
 ## API Methods
@@ -49,7 +49,7 @@ The available methods are the following ones:
   - `description :: (TraitID) -> String` - Obtain description for the given `TraitID`.
 
 Definitions:
- -  `TraitID` is an ID (`String`) from IBM Watson Personality Insights traits, including category ID and parent trait IDs with pattern `(big5|needs|values)[.<parent-id>]*.<id>`. Spaces are replaced with underscores. e.g. `big5.neuroticism`, `big5.openness.artistic_interests`, `big5.conscientiousness.self-efficacy`.
+ - `TraitID` is an ID from IBM Watson Personality Insights traits.
  - `Options` are options for the behaviors component. Available options are:
    - `locale` - A `String` with the locale used to generate the labels.
    - `format` - A `String` with format. Available formats are `["plain", "html", "markdown"]`.
