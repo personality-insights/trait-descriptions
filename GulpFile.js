@@ -26,7 +26,7 @@ const uglify     = require('gulp-uglify');
 
 
 const bundle = () =>
-  browserify({ entries: ['index.js'], standalone: 'PersonalityBehaviors' })
+  browserify({ entries: ['index.js'], standalone: 'PersonalityTraitDescriptions' })
     .transform(babelify, { presets: ['es2015'] })
     .bundle();
 
