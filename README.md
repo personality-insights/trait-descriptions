@@ -49,7 +49,7 @@ The available methods are the following ones:
   - `description :: (TraitID) -> String` - Obtain description for the given `TraitID`.
 
 Definitions:
- - `TraitID` is an ID from IBM Watson Personality Insights traits.
+ -  `TraitID` is an ID (`String`) from IBM Watson Personality Insights traits, including category ID and parent trait IDs with pattern `(big5|needs|values)[.<parent-id>]*.<id>`. Spaces are replaced with underscores. e.g. `big5.neuroticism`, `big5.openness.artistic_interests`, `big5.conscientiousness.self-efficacy`.
  - `Options` are options for the behaviors component. Available options are:
    - `locale` - A `String` with the locale used to generate the labels.
    - `format` - A `String` with format. Available formats are `["plain", "html", "markdown"]`.
