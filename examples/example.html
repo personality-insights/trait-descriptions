@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+    <title>Descriptions for Personality Insights Traits</title>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://raw.githubusercontent.com/personality-insights/trait-descriptions/master/dist/personality-trait-descriptions.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+      #profile pre {
+        max-height: 100%;
+      }
+
+      #descriptions {
+        text-align: justify;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <h1>Descriptions for Personality Insights Traits</h1>
+      <p class="lead">Obtain descriptions for Personality Insights' traits.</p>
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <h2>Personality Profile</h2>
+          <div id="profile" class=""></div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <h2>Description Cards</h2>
+          <div id="descriptions"></div>
+
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <script>
+
+      function pre(data) {
+        return '<pre>' + JSON.stringify(data, null, '  ') + '</pre>';
+      }
+
+      function card(name, description) {
+        return [
+          '<div class="well">',
+            '<p> <strong>Trait: </strong>', name, '</p>',
+            '<p> <strong>Description:</strong><br/>', description, '</p>',
+          '</div>'
+        ].join('');
+      }
+
+      $.getJSON('./resources/profile.json', '', function ( profile ) {
+
+        var descriptions = new PersonalityTraitDescriptions('en');
+
+        var big5Traits   = profile.tree.children[0].children[0].children;
+        var needsTraits  = profile.tree.children[1].children[0].children;
+        var valuesTraits = profile.tree.children[2].children[0].children;
+        var facetTraits  = big5Traits.reduce(
+          function (res, t) {
+            return res.concat(t.children);
+          },
+          []
+        );
+
+        var allTraits = [big5Traits, needsTraits, valuesTraits, facetTraits].reduce(
+          function (res, traits) {
+            return res.concat(traits);
+          },
+          []
+        );
+
+        var cards = allTraits.map(function (trait) {
+            return card(trait.name, descriptions.description(trait.id));
+        });
+
+        cards.forEach(function (card) {
+          $('#descriptions').append(card);
+        });
+
+        $('#profile').append(pre(profile));
+      });
+
+    </script>
+
+  </body>
+</html>
