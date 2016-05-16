@@ -18,14 +18,13 @@
 
 const assert = require('chai').assert;
 const log = require('winston');
-
+const flatten = require('./utilities').flatten;
 const PersonalityTraitDescriptions = require('../');
 
 describe('descriptions', () => {
 
-  it('test descriptions', () => {
+  it('correct descriptions for some traits', () => {
     const descriptions = new PersonalityTraitDescriptions();
-
 
     const testCases = [
       ['Openness', 'Openness to experience. Higher: Intellectually curious, emotionally-aware, sensitive to beauty and willing to try new things.\nLower: Preferring the plain, straightforward, and obvious over the complex, ambiguous, and subtle.'],
@@ -35,6 +34,13 @@ describe('descriptions', () => {
     ];
 
     testCases.forEach(t => assert.equal(descriptions.description(t[0]), t[1], `Get description for '${t[0]}' trait`));
+  });
+
+  it('all traits have descriptions', () => {
+    const descriptions = new PersonalityTraitDescriptions();
+    const traits = flatten(require('./resources/profile'));
+
+    traits.forEach(t => assert.isOk(descriptions.description(t.id), `Got description for trait '${t.id}'.`));
   });
 
 });
