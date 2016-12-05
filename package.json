@@ -2,7 +2,7 @@
   "name": "personality-trait-descriptions",
   "version": "1.1.0",
   "description": "Obtain descriptions for IBM Watson Personality Insights traits",
-  "main": "index.js",
+  "main": "/lib/index.js",
   "scripts": {
     "test": "npm run jshint && (npm run codecov || true)",
     "jshint": "jshint --exclude ./node_modules/",
@@ -21,6 +21,7 @@
     "watson"
   ],
   "author": "Ary Pablo Batista <arypbatista@gmail.com>",
+  "contributor": "April Webster <aprilweb@gmail.com>",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/personality-insights/trait-descriptions/issues"
