@@ -17,8 +17,6 @@
 'use strict';
 
 const assert = require('chai').assert;
-const log = require('winston');
-const flatten = require('./utilities').flatten;
 const PersonalityTraitDescriptions = require('../src/personality-trait-descriptions');
 
 describe('names', () => {
