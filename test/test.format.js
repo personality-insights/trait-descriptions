@@ -17,7 +17,7 @@
 'use strict';
 
 const assert = require('chai').assert;
-const log = require('winston');
+//const log = require('winston');
 
 const PersonalityTraitDescriptions = require('../src/personality-trait-descriptions');
 const formatText = require('../src/utilities/format-text');
@@ -25,7 +25,7 @@ const formatText = require('../src/utilities/format-text');
 describe('format', () => {
 
   it('test plain formatting alone', () => {
-    const text = "This is a **marked** text";
+    const text = 'This is a **marked** text';
 
     assert.equal(
       formatText(text, { format : 'plain'}),
@@ -36,18 +36,18 @@ describe('format', () => {
   });
 
   it('test html formatting alone', () => {
-    const text = "This is a **marked** text";
+    const text = 'This is a **marked** text';
 
     assert.equal(
       formatText(text, { format : 'html'}),
-      "<p>This is a <strong>marked</strong> text</p>\n",
+      '<p>This is a <strong>marked</strong> text</p>\n',
       'Html format working'
     );
 
   });
 
   it('test markdown formatting alone', () => {
-    const text = "This is a **marked** text";
+    const text = 'This is a **marked** text';
 
     assert.equal(
       formatText(text, { format : 'markdown'}),
