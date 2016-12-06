@@ -16,17 +16,18 @@
 
 'use strict';
 
+const _ = require('underscore');
+const extend = _.extend;
+const pick = _.pick;
+const pairs = _.pairs;
+
+const format = require('./utilities/format-text');
+
 const I18nDataV2 = require('./i18n/v2');
 const I18nDataV3 = require('./i18n/v3');
 const defaultVersion = 'v2';
 
-const format = require('./utilities/format-text');
-const _ = require('underscore'),
-  extend = _.extend,
-  pick   = _.pick,
-  pairs  = _.pairs;
-
-module.exports = class {
+class PersonalityTraitDescriptions {
 
   constructor(options) {
     this._options = extend(this.defaultOptions(), pick(options, 'locale', 'format', 'version'));
@@ -57,5 +58,6 @@ module.exports = class {
   descriptions() {
     return pairs(this._descriptions).map(p => p[1]);
   }
-
 }
+
+module.exports = PersonalityTraitDescriptions;
