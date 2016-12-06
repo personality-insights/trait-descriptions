@@ -19,7 +19,7 @@
 const assert = require('chai').assert;
 //const log = require('winston');
 
-const PersonalityTraitDescriptions = require('../src/personality-trait-descriptions');
+const PersonalityTraitDescriptions = require('../src/index');
 const formatText = require('../src/utilities/format-text');
 
 describe('format', () => {
