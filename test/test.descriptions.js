@@ -21,26 +21,57 @@ const log = require('winston');
 const flatten = require('./utilities').flatten;
 const PersonalityTraitDescriptions = require('../lib/personality-trait-descriptions');
 
-describe('descriptions', () => {
+describe('names', () => {
 
-  it('correct descriptions for some traits', () => {
-    const descriptions = new PersonalityTraitDescriptions();
-
-    const testCases = [
-      ['Openness', 'Openness to experience. Higher: Intellectually curious, emotionally-aware, sensitive to beauty and willing to try new things.\nLower: Preferring the plain, straightforward, and obvious over the complex, ambiguous, and subtle.'],
-      ['Hedonism', 'Pleasure or sensuous gratification for oneself.'],
-      ['Artistic interests', 'Appreciation for art and beauty, both man-made and in nature.'],
-      ['Self-efficacy', 'Belief in one\'s own competence.']
-    ];
-
-    testCases.forEach(t => assert.equal(descriptions.description(t[0]), t[1], `Get description for '${t[0]}' trait`));
+  it('get default (English) trait description: Agreeableness', () => {
+    const traitDescriptions = new PersonalityTraitDescriptions();
+    assert.equal(traitDescriptions.description('Agreeableness'), 'Higher: Value getting along with others. They have a more optimistic view of human nature.\nLower: Value self interests over others. They are more skeptical of others\' motives.');
+    assert.equal(traitDescriptions.descriptions().length, 52);
+    assert.equal(traitDescriptions.descriptions()[1], 'Higher: More self-disciplined, dutiful, or aiming for achievement against measures or outside expectations.\nLower: More likely to prefer the spontaneous over the planned.');
   });
 
-  it('all traits have descriptions', () => {
-    const descriptions = new PersonalityTraitDescriptions();
-    const traits = flatten(require('./resources/profile'));
-
-    traits.forEach(t => assert.isOk(descriptions.description(t.id), `Got description for trait '${t.id}'.`));
+  it('get English trait description: Agreeableness', () => {
+    const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'en' });
+    assert.equal(traitDescriptions.description('Agreeableness'), 'Higher: Value getting along with others. They have a more optimistic view of human nature.\nLower: Value self interests over others. They are more skeptical of others\' motives.');
+    assert.equal(traitDescriptions.descriptions().length, 52);
+    assert.equal(traitDescriptions.descriptions()[1], 'Higher: More self-disciplined, dutiful, or aiming for achievement against measures or outside expectations.\nLower: More likely to prefer the spontaneous over the planned.');
   });
 
+  it('get Spanish trait description: Agreeableness', () => {
+    const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'es' });
+    assert.equal(traitDescriptions.description('Agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana. \nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
+    assert.equal(traitDescriptions.descriptions().length, 52);
+    assert.equal(traitDescriptions.descriptions()[1], 'Más alto: Auto-disciplinados, conscientes de sus deberes, o tendientes a querer alcanzar logros por encima de las medidas o expectativas externas. \nMás bajo: Más propensos a preferir lo espontáneo por sobre lo planificado.');
+  });
+
+  // Japanese - to be implemented.  This is a placeholder.
+  it('get Japanese trait description: Agreeableness', () => {
+    const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'ja' });
+    assert.equal(traitDescriptions.description('Agreeableness'), 'Higher: Value getting along with others. They have a more optimistic view of human nature.\nLower: Value self interests over others. They are more skeptical of others\' motives.');
+    assert.equal(traitDescriptions.descriptions().length, 52);
+    assert.equal(traitDescriptions.descriptions()[1], 'Higher: More self-disciplined, dutiful, or aiming for achievement against measures or outside expectations.\nLower: More likely to prefer the spontaneous over the planned.');
+  });
+
+  // V3 tests
+  it('get English trait description: Agreeableness', () => {
+    const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'en', 'version' : 'v3' });
+    assert.equal(traitDescriptions.description('big5_agreeableness'), 'Higher: Value getting along with others. They have a more optimistic view of human nature.\nLower: Value self interests over others. They are more skeptical of others\' motives.');
+    assert.equal(traitDescriptions.descriptions().length, 52);
+    assert.equal(traitDescriptions.descriptions()[1], 'Higher: More self-disciplined, dutiful, or aiming for achievement against measures or outside expectations.\nLower: More likely to prefer the spontaneous over the planned.');
+  });
+
+  it('get Spanish trait description: Agreeableness', () => {
+    const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'es', 'version' : 'v3' });
+    assert.equal(traitDescriptions.description('big5_agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana. \nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
+    assert.equal(traitDescriptions.descriptions().length, 52);
+    assert.equal(traitDescriptions.descriptions()[1], 'Más alto: Auto-disciplinados, conscientes de sus deberes, o tendientes a querer alcanzar logros por encima de las medidas o expectativas externas. \nMás bajo: Más propensos a preferir lo espontáneo por sobre lo planificado.');
+  });
+
+  // Japanese - to be implemented.  This is a placeholder.
+  it('get Japanese trait description: Agreeableness', () => {
+    const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'ja', 'version' : 'v3' });
+    assert.equal(traitDescriptions.description('big5_agreeableness'), 'Higher: Value getting along with others. They have a more optimistic view of human nature.\nLower: Value self interests over others. They are more skeptical of others\' motives.');
+    assert.equal(traitDescriptions.descriptions().length, 52);
+    assert.equal(traitDescriptions.descriptions()[1], 'Higher: More self-disciplined, dutiful, or aiming for achievement against measures or outside expectations.\nLower: More likely to prefer the spontaneous over the planned.');
+  });
 });
