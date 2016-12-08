@@ -4,7 +4,7 @@
   "description": "Obtain descriptions for IBM Watson Personality Insights traits",
   "main": "lib/index.js",
   "scripts": {
-    "compile": "browserify -t [ babelify --presets [ es2015 ] ] --standalone PersonalityTraitDescriptions lib/index.js -o dist/index.js",
+    "compile": "node_modules/.bin/browserify -t [ babelify --presets [ es2015 ] ] --standalone PersonalityTraitDescriptions lib/index.js -o dist/index.js",
     "prepublish": "npm run compile",
     "test": "npm run lint && npm run codecov",
     "lint": "eslint .",
