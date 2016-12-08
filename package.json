@@ -2,9 +2,9 @@
   "name": "personality-trait-descriptions",
   "version": "2.0.2",
   "description": "Obtain descriptions for IBM Watson Personality Insights traits",
-  "main": "/lib/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "compile": "browserify -t [ babelify --presets [ es2015 ] ] src/index.js -o lib/index.js",
+    "compile": "browserify -t [ babelify --presets [ es2015 ] ] --standalone PersonalityTraitDescriptions lib/index.js -o dist/index.js",
     "prepublish": "npm run compile",
     "test": "npm run lint && npm run codecov",
     "lint": "eslint .",
@@ -37,6 +37,7 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babelify": "^7.3.0",
     "browserify": "^13.1.1",
     "chai": "^3.5.0",
