@@ -19,8 +19,8 @@
 const assert = require('chai').assert;
 //const log = require('winston');
 
-const PersonalityTraitDescriptions = require('../lib/index');
-const formatText = require('../lib/utilities/format-text');
+const PersonalityTraitDescriptions = require('../src/index');
+const formatText = require('../src/utilities/format-text');
 
 describe('format', () => {
 
