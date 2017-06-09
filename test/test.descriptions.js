@@ -77,6 +77,20 @@ describe('names', () => {
     assert.equal(traitDescriptions.descriptions()[50], '社会的な基準に基づいて能力を実証することによる個人的な成功。');
   });
 
+  it('get Korean trait description (v2): Agreeableness', () => {
+    const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'ko', 'version' : 'v2' });
+    assert.equal(traitDescriptions.description('Agreeableness'), 'Higher: 다른사람들과 함께하는 가치. 그들은 인간 본성에 대해 보다 낙관적인 견해를 가지고 있습니다. Lower: 다른 사람들보다 자기 이익을 중시합니다. 그들은 다른 사람들의 동기유발에 회의적입니다.');
+    assert.equal(traitDescriptions.descriptions().length, 52);
+    assert.equal(traitDescriptions.descriptions()[1], 'Higher: 보다 자기훈련이 되었고 충실함. 혹은 예상 밖이거나 척도에 거스르는 것에 반한 성취를 목표로 합니다. Lower: 계획적인 것보다 즉흥적으로 선호하는 경향이 있습니다.');
+  });
+
+  it('get Korean trait description (v2): Trust', () => {
+    const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'ko', 'version' : 'v2' });
+    assert.equal(traitDescriptions.description('Trust'), '타인의 성의와 선의에 대한 믿음.');
+    assert.equal(traitDescriptions.descriptions().length, 52);
+    assert.equal(traitDescriptions.descriptions()[50], '사회적 기준에 따른 능력의 입증을 통한 개인적인 성공.');
+  });
+
   // V3 tests
   it('get English trait description (v3): big5_agreeableness', () => {
     const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'en', 'version' : 'v3' });
@@ -118,5 +132,19 @@ describe('names', () => {
     assert.equal(traitDescriptions.description('need_harmony'), '他人、彼らの見解、及びおよび感覚を高く評価したり喜ばせる必要性。');
     assert.equal(traitDescriptions.descriptions().length, 52);
     assert.equal(traitDescriptions.descriptions()[47], '文化や宗教の違いによる習慣やアイディアに対する尊敬、約束、および受け入れ。');
+  });
+
+  it('get Korean trait description (v3): big5_agreeableness', () => {
+    const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'ko', 'version' : 'v3' });
+    assert.equal(traitDescriptions.description('big5_agreeableness'), 'Higher: 다른사람들과 함께하는 가치. 그들은 인간 본성에 대해 보다 낙관적인 견해를 가지고 있습니다. \nLower: 다른 사람들보다 자기 이익을 중시합니다. 그들은 다른 사람들의 동기유발에 회의적입니다.');
+    assert.equal(traitDescriptions.descriptions().length, 52);
+    assert.equal(traitDescriptions.descriptions()[1], 'Higher: 보다 자기훈련이 되었고 충실함. 혹은 예상 밖이거나 척도에 거스르는 것에 반한 성취를 목표로 합니다. \nLower: 계획적인 것보다 즉흥적으로 선호하는 경향이 있습니다.');
+  });
+
+  it('get Korean trait description (v3): need_harmony', () => {
+    const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'ko', 'version' : 'v3' });
+    assert.equal(traitDescriptions.description('need_harmony'), '다른 사람들, 그들의 견해 그리고 감정에 감사하거나 기뻐 할 필요성.');
+    assert.equal(traitDescriptions.descriptions().length, 52);
+    assert.equal(traitDescriptions.descriptions()[47], '문화 그리고/또는 종교가 제공하는 관습 및 아이디어에 대한 존중, 헌신 및 수용');
   });
 });
