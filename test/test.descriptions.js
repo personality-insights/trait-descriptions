@@ -79,9 +79,9 @@ describe('names', () => {
 
   it('get Korean trait description (v2): Agreeableness', () => {
     const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'ko', 'version' : 'v2' });
-    assert.equal(traitDescriptions.description('Agreeableness'), 'Higher: 다른사람들과 함께하는 가치. 그들은 인간 본성에 대해 보다 낙관적인 견해를 가지고 있습니다. Lower: 다른 사람들보다 자기 이익을 중시합니다. 그들은 다른 사람들의 동기유발에 회의적입니다.');
+    assert.equal(traitDescriptions.description('Agreeableness'), '높은 사람: 다른사람들과 함께하는 가치. 그들은 인간 본성에 대해 보다 낙관적인 견해를 가지고 있습니다. 낮은 사람: 다른 사람들보다 자기 이익을 중시합니다. 그들은 다른 사람들의 동기유발에 회의적입니다.');
     assert.equal(traitDescriptions.descriptions().length, 52);
-    assert.equal(traitDescriptions.descriptions()[1], 'Higher: 보다 자기훈련이 되었고 충실함. 혹은 예상 밖이거나 척도에 거스르는 것에 반한 성취를 목표로 합니다. Lower: 계획적인 것보다 즉흥적으로 선호하는 경향이 있습니다.');
+    assert.equal(traitDescriptions.descriptions()[1], '높은 사람: 보다 자기훈련이 되었고 충실함. 혹은 예상 밖이거나 척도에 거스르는 것에 반한 성취를 목표로 합니다. 낮은 사람: 계획적인 것보다 즉흥적으로 선호하는 경향이 있습니다.');
   });
 
   it('get Korean trait description (v2): Trust', () => {
@@ -136,9 +136,9 @@ describe('names', () => {
 
   it('get Korean trait description (v3): big5_agreeableness', () => {
     const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'ko', 'version' : 'v3' });
-    assert.equal(traitDescriptions.description('big5_agreeableness'), 'Higher: 다른사람들과 함께하는 가치. 그들은 인간 본성에 대해 보다 낙관적인 견해를 가지고 있습니다. \nLower: 다른 사람들보다 자기 이익을 중시합니다. 그들은 다른 사람들의 동기유발에 회의적입니다.');
+    assert.equal(traitDescriptions.description('big5_agreeableness'), '높은 사람: 다른사람들과 함께하는 가치. 그들은 인간 본성에 대해 보다 낙관적인 견해를 가지고 있습니다. \n낮은 사람: 다른 사람들보다 자기 이익을 중시합니다. 그들은 다른 사람들의 동기유발에 회의적입니다.');
     assert.equal(traitDescriptions.descriptions().length, 52);
-    assert.equal(traitDescriptions.descriptions()[1], 'Higher: 보다 자기훈련이 되었고 충실함. 혹은 예상 밖이거나 척도에 거스르는 것에 반한 성취를 목표로 합니다. \nLower: 계획적인 것보다 즉흥적으로 선호하는 경향이 있습니다.');
+    assert.equal(traitDescriptions.descriptions()[1], '높은 사람: 보다 자기훈련이 되었고 충실함. 혹은 예상 밖이거나 척도에 거스르는 것에 반한 성취를 목표로 합니다. \n낮은 사람: 계획적인 것보다 즉흥적으로 선호하는 경향이 있습니다.');
   });
 
   it('get Korean trait description (v3): need_harmony', () => {
