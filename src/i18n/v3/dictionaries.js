@@ -17,8 +17,8 @@
 'use strict';
 
 module.exports = {
-  'en' : require('./en'),
-  'es' : require('./es'),
-  'ja' : require('./ja'),
-  'ko' : require('./ko')
+  en: require('./en'),
+  es: require('./es'),
+  ja: require('./ja'),
+  ko: require('./ko')
 };
