@@ -10,13 +10,11 @@ notifications:
   email:
     recipients:
     - aprilweb@gmail.com
-before_deploy:
- - npm install browserify -g
- - npm install babel -g
 deploy:
   provider: npm
   email: germanattanasio@gmail.com
   api_key: "${npm_api_key}"
+  skip_cleanup: true
   on:
     tags: true
     repo: personality-insights/trait-descriptions
