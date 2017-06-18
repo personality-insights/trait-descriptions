@@ -10,6 +10,9 @@ notifications:
   email:
     recipients:
     - aprilweb@gmail.com
+before_deploy:
+ - npm install browserify -g
+ - npm install babel -g
 deploy:
   provider: npm
   email: germanattanasio@gmail.com
