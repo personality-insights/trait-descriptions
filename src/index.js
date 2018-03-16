@@ -16,10 +16,9 @@
 
 'use strict';
 
-const _ = require('underscore');
-const extend = _.extend;
-const pick = _.pick;
-const pairs = _.pairs;
+const extend = require('lodash.assignin');
+const pick = require('lodash.pick');
+const pairs = require('lodash.pairs');
 
 const format = require('./utilities/format-text');
 
