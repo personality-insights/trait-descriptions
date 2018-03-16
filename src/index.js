@@ -55,7 +55,7 @@ class PersonalityTraitDescriptions {
   }
 
   descriptions() {
-    return pairs(this._descriptions).map(p => p[1]);
+    return pairs(this._descriptions).map(function(p) { return p[1]; });
   }
 }
 
