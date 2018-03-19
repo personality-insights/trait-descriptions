@@ -16,46 +16,26 @@
 
 'use strict';
 
-const extend = require('lodash.assignin');
 const pick = require('lodash.pick');
-const pairs = require('lodash.pairs');
-
-const format = require('./utilities/format-text');
-
 const I18nDataV2 = require('./i18n/v2');
 const I18nDataV3 = require('./i18n/v3');
-const defaultVersion = 'v2';
+const PersonalityTraitDescriptionsImpl = require('./personality-trait-descriptions');
 
-class PersonalityTraitDescriptions {
+const DEFAULT_OPTIONS = {
+  locale: 'en',
+  format: 'plain',
+  version: 'v2'
+};
+
+class PersonalityTraitDescriptions extends PersonalityTraitDescriptionsImpl {
 
   constructor(options) {
-    this._options = extend(this.defaultOptions(), pick(options, 'locale', 'format', 'version'));
-    this._version = typeof this._options.version !== 'undefined' ? this._options.version : defaultVersion;
-
-    if (this._version === 'v3'){
-      this._i18n = new I18nDataV3(this._options.locale);
-    } else{
-      this._i18n = new I18nDataV2(this._options.locale);
-    }
-    this._descriptions = this._i18n.data();
-
-    this._descriptions = this._i18n.data();
+    const _options = Object.assign({}, DEFAULT_OPTIONS, pick(options, ['locale', 'format', 'version']));
+    super(_options, _options.version === 'v2' ? I18nDataV2 : I18nDataV3);
   }
 
   defaultOptions() {
-    return {
-      locale: 'en',
-      format: 'plain',
-      version: 'v2'
-    };
-  }
-
-  description(traitId) {
-    return format(this._descriptions[traitId], this._options);
-  }
-
-  descriptions() {
-    return pairs(this._descriptions).map(function(p) { return p[1]; });
+    return DEFAULT_OPTIONS;
   }
 }
 

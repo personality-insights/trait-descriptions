@@ -13,6 +13,8 @@ declare class PersonalityTraitDescriptions {
     format: Format
   };
 
+  setLocale(locale: Locale): void;
+
   description(traitId: string): string;
 
   descriptions(): string[];

@@ -16,21 +16,26 @@
 
 'use strict';
 
-const includes = require('lodash.includes');
-const keys = require('lodash.keys');
-const dictionaries = require('./dictionaries');
+const pick = require('lodash.pick');
+const I18nDataV2 = require('./i18n/v2');
+const PersonalityTraitDescriptionsImpl = require('./personality-trait-descriptions');
 
-class I18nData {
+const DEFAULT_OPTIONS = {
+  locale: 'en',
+  format: 'plain',
+  version: 'v2'
+};
 
-  constructor(locale) {
-    this._locale = includes(keys(dictionaries), locale) ? locale : 'en';
-    this._dictionary = dictionaries[this._locale];
+class PersonalityTraitDescriptions extends PersonalityTraitDescriptionsImpl {
+
+  constructor(options) {
+    const _options = Object.assign({}, DEFAULT_OPTIONS, pick(options, ['locale', 'format']));
+    super(_options, I18nDataV2);
   }
 
-  data() {
-    return Object.assign({}, this._dictionary);
+  defaultOptions() {
+    return DEFAULT_OPTIONS;
   }
 }
 
-
-module.exports = I18nData;
+module.exports = PersonalityTraitDescriptions;
