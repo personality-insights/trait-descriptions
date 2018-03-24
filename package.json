@@ -31,7 +31,6 @@
   },
   "homepage": "https://github.com/personality-insights/trait-descriptions#readme",
   "dependencies": {
-    "lodash.assignin": "^4.2.0",
     "lodash.includes": "^4.3.0",
     "lodash.keys": "^4.2.0",
     "lodash.pairs": "^3.0.1",
