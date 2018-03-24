@@ -33,9 +33,9 @@ describe('descriptions', () => {
       });
       it('should work with locale', () => {
         const traitDescriptions = new PersonalityTraitDescriptionsV2({ locale : 'es' });
-        assert.equal(traitDescriptions.description('Agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana. \nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
+        assert.equal(traitDescriptions.description('Agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana.\nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
         assert.equal(traitDescriptions.descriptions().length, 52);
-        assert.equal(traitDescriptions.descriptions()[1], 'Más alto: Auto-disciplinados, conscientes de sus deberes, o tendientes a querer alcanzar logros por encima de las medidas o expectativas externas. \nMás bajo: Más propensos a preferir lo espontáneo por sobre lo planificado.');
+        assert.equal(traitDescriptions.descriptions()[1], 'Más alto: Auto-disciplinados, conscientes de sus deberes, o tendientes a querer alcanzar logros por encima de las medidas o expectativas externas.\nMás bajo: Más propensos a preferir lo espontáneo por sobre lo planificado.');
       });
       it('should work when changing locale', () => {
         const traitDescriptions = new PersonalityTraitDescriptionsV2();
@@ -44,9 +44,9 @@ describe('descriptions', () => {
         assert.equal(traitDescriptions.descriptions()[1], 'Higher: More self-disciplined, dutiful, or aiming for achievement against measures or outside expectations.\nLower: More likely to prefer the spontaneous over the planned.');
 
         traitDescriptions.setLocale('es');
-        assert.equal(traitDescriptions.description('Agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana. \nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
+        assert.equal(traitDescriptions.description('Agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana.\nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
         assert.equal(traitDescriptions.descriptions().length, 52);
-        assert.equal(traitDescriptions.descriptions()[1], 'Más alto: Auto-disciplinados, conscientes de sus deberes, o tendientes a querer alcanzar logros por encima de las medidas o expectativas externas. \nMás bajo: Más propensos a preferir lo espontáneo por sobre lo planificado.');
+        assert.equal(traitDescriptions.descriptions()[1], 'Más alto: Auto-disciplinados, conscientes de sus deberes, o tendientes a querer alcanzar logros por encima de las medidas o expectativas externas.\nMás bajo: Más propensos a preferir lo espontáneo por sobre lo planificado.');
       });
     });
 
@@ -81,9 +81,9 @@ describe('descriptions', () => {
 
       it('get Spanish trait description: Agreeableness', () => {
         const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'es', version : 'v2' });
-        assert.equal(traitDescriptions.description('Agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana. \nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
+        assert.equal(traitDescriptions.description('Agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana.\nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
         assert.equal(traitDescriptions.descriptions().length, 52);
-        assert.equal(traitDescriptions.descriptions()[1], 'Más alto: Auto-disciplinados, conscientes de sus deberes, o tendientes a querer alcanzar logros por encima de las medidas o expectativas externas. \nMás bajo: Más propensos a preferir lo espontáneo por sobre lo planificado.');
+        assert.equal(traitDescriptions.descriptions()[1], 'Más alto: Auto-disciplinados, conscientes de sus deberes, o tendientes a querer alcanzar logros por encima de las medidas o expectativas externas.\nMás bajo: Más propensos a preferir lo espontáneo por sobre lo planificado.');
       });
 
       it('get Spanish trait description: Trust', () => {
@@ -127,9 +127,9 @@ describe('descriptions', () => {
         assert.equal(traitDescriptions.descriptions()[1], 'Higher: More self-disciplined, dutiful, or aiming for achievement against measures or outside expectations.\nLower: More likely to prefer the spontaneous over the planned.');
 
         traitDescriptions.setLocale('es');
-        assert.equal(traitDescriptions.description('Agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana. \nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
+        assert.equal(traitDescriptions.description('Agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana.\nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
         assert.equal(traitDescriptions.descriptions().length, 52);
-        assert.equal(traitDescriptions.descriptions()[1], 'Más alto: Auto-disciplinados, conscientes de sus deberes, o tendientes a querer alcanzar logros por encima de las medidas o expectativas externas. \nMás bajo: Más propensos a preferir lo espontáneo por sobre lo planificado.');
+        assert.equal(traitDescriptions.descriptions()[1], 'Más alto: Auto-disciplinados, conscientes de sus deberes, o tendientes a querer alcanzar logros por encima de las medidas o expectativas externas.\nMás bajo: Más propensos a preferir lo espontáneo por sobre lo planificado.');
       });
     });
   });
@@ -144,7 +144,7 @@ describe('descriptions', () => {
       });
       it('should work with locale', () => {
         const traitDescriptions = new PersonalityTraitDescriptionsV3({ locale : 'es' });
-        assert.equal(traitDescriptions.description('big5_agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana. \nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
+        assert.equal(traitDescriptions.description('big5_agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana.\nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
         assert.equal(traitDescriptions.descriptions().length, 52);
         assert.equal(traitDescriptions.descriptions()[48], 'Independencia en las acciones, los pensamientos, sentimientos y disposición a nuevas experiencias.');
       });
@@ -155,7 +155,7 @@ describe('descriptions', () => {
         assert.equal(traitDescriptions.descriptions()[1], 'Higher: More self-disciplined, dutiful, or aiming for achievement against measures or outside expectations.\nLower: More likely to prefer the spontaneous over the planned.');
 
         traitDescriptions.setLocale('es');
-        assert.equal(traitDescriptions.description('big5_agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana. \nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
+        assert.equal(traitDescriptions.description('big5_agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana.\nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
         assert.equal(traitDescriptions.descriptions().length, 52);
         assert.equal(traitDescriptions.descriptions()[48], 'Independencia en las acciones, los pensamientos, sentimientos y disposición a nuevas experiencias.');
       });
@@ -178,7 +178,7 @@ describe('descriptions', () => {
 
       it('get Spanish trait description: big5_agreeableness', () => {
         const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'es', version : 'v3' });
-        assert.equal(traitDescriptions.description('big5_agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana. \nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
+        assert.equal(traitDescriptions.description('big5_agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana.\nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
         assert.equal(traitDescriptions.descriptions().length, 52);
         assert.equal(traitDescriptions.descriptions()[48], 'Independencia en las acciones, los pensamientos, sentimientos y disposición a nuevas experiencias.');
       });
@@ -206,9 +206,9 @@ describe('descriptions', () => {
 
       it('get Korean trait description: big5_agreeableness', () => {
         const traitDescriptions = new PersonalityTraitDescriptions({ locale : 'ko', version : 'v3' });
-        assert.equal(traitDescriptions.description('big5_agreeableness'), '높은 사람: 다른사람들과 함께하는 가치. 그들은 인간 본성에 대해 보다 낙관적인 견해를 가지고 있습니다. \n낮은 사람: 다른 사람들보다 자기 이익을 중시합니다. 그들은 다른 사람들의 동기유발에 회의적입니다.');
+        assert.equal(traitDescriptions.description('big5_agreeableness'), '높은 사람: 다른사람들과 함께하는 가치. 그들은 인간 본성에 대해 보다 낙관적인 견해를 가지고 있습니다.\n낮은 사람: 다른 사람들보다 자기 이익을 중시합니다. 그들은 다른 사람들의 동기유발에 회의적입니다.');
         assert.equal(traitDescriptions.descriptions().length, 52);
-        assert.equal(traitDescriptions.descriptions()[1], '높은 사람: 보다 자기훈련이 되었고 충실함. 혹은 예상 밖이거나 척도에 거스르는 것에 반한 성취를 목표로 합니다. \n낮은 사람: 계획적인 것보다 즉흥적으로 선호하는 경향이 있습니다.');
+        assert.equal(traitDescriptions.descriptions()[1], '높은 사람: 보다 자기훈련이 되었고 충실함. 혹은 예상 밖이거나 척도에 거스르는 것에 반한 성취를 목표로 합니다.\n낮은 사람: 계획적인 것보다 즉흥적으로 선호하는 경향이 있습니다.');
       });
 
       it('get Korean trait description: need_harmony', () => {
@@ -225,7 +225,7 @@ describe('descriptions', () => {
         assert.equal(traitDescriptions.descriptions()[1], 'Higher: More self-disciplined, dutiful, or aiming for achievement against measures or outside expectations.\nLower: More likely to prefer the spontaneous over the planned.');
 
         traitDescriptions.setLocale('es');
-        assert.equal(traitDescriptions.description('big5_agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana. \nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
+        assert.equal(traitDescriptions.description('big5_agreeableness'), 'Más alto: Valoran llevarse bien con otros. Tienen una visión más optimista de la naturaleza humana.\nMás bajo: Valoran sus propios intereses por sobre los de otros. Son más escépticos de los motivos de los demás.');
         assert.equal(traitDescriptions.descriptions().length, 52);
         assert.equal(traitDescriptions.descriptions()[48], 'Independencia en las acciones, los pensamientos, sentimientos y disposición a nuevas experiencias.');
       });
